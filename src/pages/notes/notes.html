@@ -1,0 +1,62 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Notes</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addNote();">
+        <ion-icon name="add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-toolbar>
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  </ion-toolbar>
+
+  <!-- <ion-list *ngIf="notes.length"> -->
+  <ion-list>
+
+    <ion-item-sliding *ngFor="let note of notes; let i = index" (click)="viewNote();">
+
+      <button ion-item>
+        <h2>{{ note.name }}</h2>
+      </button>
+
+      <ion-item-options side="right">
+        <button ion-button color="primary" (click)="deleteNote(i)">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-item-options>
+    
+    </ion-item-sliding>
+
+  </ion-list>
+
+</ion-content>
+
+<ion-footer no-border>
+  <ion-toolbar>
+
+    <ion-segment [(ngModel)]="icons" color="secondary">
+
+      <ion-segment-button value="name">
+        Name
+      </ion-segment-button>
+
+      <ion-segment-button value="create">
+        Create
+      </ion-segment-button>
+
+      <ion-segment-button value="update">
+        Update
+      </ion-segment-button>
+
+    </ion-segment>
+
+  </ion-toolbar>
+</ion-footer>
