@@ -1,3 +1,37 @@
 page-login {
 
+  ion-item {
+    padding-left: 0 !important;
+  }
+
+  ion-list {
+    margin-top: 20px !important;
+  }
+
+  ion-item {
+    border: 0 none !important;
+    flex-direction: column;
+  }
+
+  ion-label {
+    display: block;
+    flex: none !important;
+  }
+
+  ion-input {
+    border-radius: 10px;
+    border: 1px solid #333;
+    background-color: #fff;
+  }
+
+  .input-wrapper {
+    display: block !important;
+    text-align: left;
+  }
+
+  .item-inner {
+    padding-right: 0 !important;
+    border: 0 none !important;
+  }
+
 }

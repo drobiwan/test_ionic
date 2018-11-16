@@ -4,6 +4,7 @@ import { NavController, AlertController } from 'ionic-angular';
 import { NotesPage } from '../../pages/notes/notes';
  
 @Component({
+  selector: 'page-login',
   templateUrl: 'login.html'
 })
 export class LoginPage {

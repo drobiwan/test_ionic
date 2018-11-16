@@ -15,20 +15,21 @@
 <ion-content>
 
   <ion-toolbar>
-    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    <ion-searchbar [hidden]="emptyNotes" (ionInput)="getItems($event)"></ion-searchbar>
   </ion-toolbar>
 
-  <!-- <ion-list *ngIf="notes.length"> -->
-  <ion-list>
+  <div *ngIf="!notes">Empty notes list</div>
 
-    <ion-item-sliding *ngFor="let note of notes; let i = index" (click)="viewNote();">
+  <ion-list *ngIf="notes">
+
+    <ion-item-sliding *ngFor="let note of notes; let i = index" (click)="viewNote()">
 
       <button ion-item>
         <h2>{{ note.name }}</h2>
       </button>
 
       <ion-item-options side="right">
-        <button ion-button color="primary" (click)="deleteNote(i)">
+        <button ion-button color="primary" (click)="deleteNoteModal(note)">
           <ion-icon name="trash"></ion-icon>
         </button>
       </ion-item-options>
@@ -39,7 +40,7 @@
 
 </ion-content>
 
-<ion-footer no-border>
+<!-- <ion-footer no-border>
   <ion-toolbar>
 
     <ion-segment [(ngModel)]="icons" color="secondary">
@@ -59,4 +60,4 @@
     </ion-segment>
 
   </ion-toolbar>
-</ion-footer>
+</ion-footer> -->
